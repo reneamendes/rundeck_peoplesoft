@@ -49,7 +49,8 @@ The Peoplesoft refresh process was automated in 2019 and over the next 4 years m
 
 The idea of ​​using Rundeck to refresh Peoplesoft came from the website **[psadmin.io](https://www.psadmin.io)** but, except for the idea, everything else had to be learned from scratch. Let's get into the details.
 
-[!NOTE] If you've never used Rundeck before, I highly recommend that you read the application documentation before you get started. This will clarify what Rundeck is, how to install it, and how to configure it. You can access the Rundeck manual [here](https://docs.rundeck.com/docs/learning).
+> [!NOTE] 
+> If you've never used Rundeck before, I highly recommend that you read the application documentation before you get started. This will clarify what Rundeck is, how to install it, and how to configure it. You can access the Rundeck manual [here](https://docs.rundeck.com/docs/learning).
 
 # Peoplesoft refresh process
 
@@ -67,7 +68,8 @@ Below I will describe each process, going into detail when necessary. The script
 
 In order to set the correct context in which the commands will be executed, some job options need to be set in the job context.
 
-[!NOTE] If you are new to Rundeck, I recommend that you consult the documentation to learn what Job Options are. To do so, use [this link](https://docs.rundeck.com/5.8.0/manual/jobs/job-options.html).
+> [!NOTE] 
+> If you are new to Rundeck, I recommend that you consult the documentation to learn what Job Options are. To do so, use [this link](https://docs.rundeck.com/5.8.0/manual/jobs/job-options.html).
 
 All context settings are made by job options defined in the PSCloneEnvironmentProdToDevDropTable job. The values ​​selected by the user in the PSCloneEnvironmentProdToDevDropTable job are inherited by other jobs.
 
@@ -77,9 +79,11 @@ This is the master job, which orchestrates all other jobs. The options defined i
 
 For convenience, the job option values ​​available to users are defined in JSON files stored in the Rundeck file system. This way, when the JSON file receives a new value, that value will automatically appear for the user the next time the job is opened.
 
-[!NOTE] You can learn more about JSON format job options [here](https://docs.rundeck.com/5.8.0/manual/jobs/job-options.html#json-format).
+> [!NOTE] 
+> You can learn more about JSON format job options [here](https://docs.rundeck.com/5.8.0/manual/jobs/job-options.html#json-format).
 
-[!TIP] All JSON files used in job options are available in the [`scripts/jobs`](scripts/json_files/) directory. These files must be copied to the path indicated in the definition of each job option. If the directory indicated in the path does not exist, create it.
+> [!TIP] 
+> All JSON files used in job options are available in the [`scripts/jobs`](scripts/json_files/) directory. These files must be copied to the path indicated in the definition of each job option. If the directory indicated in the path does not exist, create it.
 
 
 ## 1) PSStopEnvironment
