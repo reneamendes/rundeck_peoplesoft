@@ -1,0 +1,236 @@
+template_name=IB_TEMPLATE
+
+#Tools_release=8.57.04
+#Apps_release=HRMS 9.20.00.000
+
+configure=true
+verify=true
+decrypt_password=true
+
+template.domain=@webhist.SESSIONCOOKIEDOM
+template.host=@webhist.WEBSERVERNAME
+template.httpport=@webhist.PORTALHTTPPORT
+template.jslport=@webhist.jolt_port
+template.localnode=%LocalNode
+template.nodename=%LocalNode
+template.piasite=@webhist.ps.discovery.siteName
+template.ses_port=7777
+template.seshost=seshost
+template.sslport=@webhist.PORTALHTTPSPORT
+template.tools_release=%ToolsRelease
+template.userid=%UserId
+
+#Group:Integration Broker
+#Description:Integration Broker Configurations
+
+##### Renomeie o nó local padrão#####
+
+#plugin.IB Node Configuration.1=PTEM_CONFIG:PTIBRenameNode
+
+#Nó local padrão
+env.default_local_node=PSFT_HR
+
+#Limpar mensagens do servidor de aplicativos
+env.app_msg_purge_all_dms=true
+
+##### Configurar nó Banco de Dados#####
+
+plugin.IB Node Configuration.2=PTEM_CONFIG:PTIBConfigureDBNode
+
+#Host de servidor Web do PIA
+env.pia_webserver_host=linuxserverhostname.yourcompany.com
+
+#Porta servidor Web do PIA
+env.pia_webserver_port=8370
+
+#Porta SSL de servidor Web do PIA
+env.pia_webserver_ssl_port=8371
+
+#Nome do site do PIA
+env.pia_site_name=hc92pprd
+
+#Host de gateway
+env.gateway_host=linuxserverhostname.yourcompany.com
+
+#Porta de gateway
+env.gateway_port=8370
+
+#Porta SSL de gateway
+env.gateway_ssl_port=8371
+
+#Indicador determina se configuração é segura (https)/não segura (http); True-> https, false->http
+env.use_ssl_gateway=false
+
+#Indicador determina se configuração é segura (https)/não segura (http); True-> https, false->http
+env.use_ssl_webserver=false
+
+#Nome de usuário padrão
+env.default_user_id=PSEM
+
+#Senha do nó local padrão
+env.default_local_node_pass=encryptedpass
+
+#Default local node CheckTokenId
+env.default_local_node_check_token_id=
+
+#Nome de usuário padrão anônimo
+env.anonymous_default_user_id=PSEM
+
+#Nó local padrão
+env.default_local_node=PSFT_HR
+
+#ID usuário externo para wsdl_node
+env.wsdl_external_user_id=
+
+#Senha do usuário externo para wsdl_node
+env.wsdl_external_pass=
+
+#Indicador para configurar nó WSDL
+env.configure_wsdl_node=false
+
+#TokenType de Autenticação p/ WSDL; Valores Possíveis: NONE=none,STSD=SAML Token,USRT=Username Token
+env.wsdl_node_tokentype=NONE
+
+#Criptografia para nó WSDL
+env.wsdl_node_tokenencrypted=0
+
+#Assinatura Digital para nó WSDL
+env.wsdl_node_tokensigned=0
+
+#Nível de Criptografia para nó WSDL; Valores Possíveis: A=All, B=body e H=Header level encryption
+env.wsdl_node_ibencryptionlevel=A
+
+#Sets the default service namespace for Web Services
+env.default_service_namespace=http://xmlns.oracle.com/Enterprise/HCM/services
+
+#Sets the default schema namespace for Web Services
+env.default_schema_namespace=http://xmlns.oracle.com/Enterprise/Tools/schemas
+
+#Sets the Service System Status Parameter for Service Configuration
+env.service_system_status=P
+
+#Sets the flag for the WSDL Generation Alias Check default for Service Configuration
+env.wsdl_alias_check=N
+
+#Sets the flag for the Enable Multi-queue parameter for Service Configuration
+env.enable_multi_queue=N
+
+##### Configurar URL de gateway, carregar conectores, definir nó no gateway#####
+
+plugin.IB Gateway Configuration.3=PTEM_CONFIG:PTIBConfigureGatewayNodes
+
+#Host de gateway
+env.gateway_host=linuxserverhostname.yourcompany.com
+
+#Porta de gateway
+env.gateway_port=8370
+
+#Porta SSL de gateway
+env.gateway_ssl_port=8371
+
+#Indicador determina se configuração é segura (https)/não segura (http); True-> https, false->http
+env.use_ssl_gateway=false
+
+#Nó local padrão
+env.default_local_node=PSFT_HR
+
+#Nome usuário do gateway
+env.gateway_user=administrator
+
+#Senha de usuário do gateway
+env.gateway_password=encryptedpass
+
+#Nome host do servidor de aplicativos
+env.ib_appserver_host=linuxserverhostname.yourcompany.com
+
+#Porta JOLT
+env.ib_jolt_port=9370
+
+#Nome usuário do proxy do nó
+env.ib_node_proxy_userid=PSEM
+
+#Senha de usuário do proxy do nó
+env.ib_node_proxy_password=encryptedpass
+
+#Versão Tools
+env.tools_release=8.57.04
+
+#Senha de domínio do servidor de aplicativos
+env.ib_appserver_domain_password=
+
+#Nó virtual
+env.ib_virtual_node=
+
+#Definir como nó padrão caso ele esteja definido como verdadeiro
+env.ib_set_as_default_node=true
+
+#Executar Sincronização de Arquivo MAP
+env.ib_synchronize_map_files=Y
+
+##### Defina senha keystore, host proxy, porta proxy, host sem proxy no arquivo de propriedades do gateway#####
+
+plugin.IB Gateway Configuration.4=PTEM_CONFIG:PTIBConfigureGatewayProperties
+
+#Host de gateway
+env.gateway_host=linuxserverhostname.yourcompany.com
+
+#Porta de gateway
+env.gateway_port=8370
+
+#Porta SSL de gateway
+env.gateway_ssl_port=8371
+
+#Indicador determina se configuração é segura (https)/não segura (http); True-> https, false->http
+env.use_ssl_gateway=false
+
+#Nome usuário do gateway
+env.gateway_user=administrator
+
+#Senha de usuário do gateway
+env.gateway_password=encryptedpass
+
+#Senha de keystore do gateway
+env.gateway_keystore_password=encryptedpass
+
+#Host de proxy do gateway
+env.gateway_proxy_host=
+
+#Porta de proxy do gateway
+env.gateway_proxy_port=
+
+#Hosts não proxy do gateway
+env.gateway_non_proxy_hosts=
+
+#Nó local padrão
+env.default_local_node=PSFT_HR
+
+#Executar Sincronização de Arquivo MAP
+env.ib_synchronize_map_files=Y
+
+##### Domínio Public/Subst Ag Integr#####
+
+#plugin.IB Activate.5=PTEM_CONFIG:PTIBActivateDomain
+
+#Nº Tentativas Domínio Ativo
+domain.activate_retry_count=10
+
+#Tempo de Espera Domínio Ativo
+domain.activate_wait_time=10
+
+##### Limpar nós inativos da rede e roteamentos inativos da rede#####
+
+#plugin.CleanUp.6=PTEM_CONFIG:PTIBCleanUpNetworkData
+
+#Nomes de nós separados por vírgula para serem limpos da rede
+env.network_nodenames_to_cleanup=
+
+##### Ativar Filas Agente Integr.#####
+
+#plugin.IB Activate.7=PTEM_CONFIG:PTIBActivateQueues
+
+#Val Possíveis: PS_ALL p/ ativar todas filas; ou forneça valores separados por vírgula p/ nomes fila
+queue.activate_queue_list=PS_ALL
+
+#Status da Fila Ativo; O Valor Padrão do status da fila é 1
+queue.activate_queue_status=1
+
