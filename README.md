@@ -64,6 +64,12 @@ The refresh process of non-productive Peoplesoft environments can be represented
 
 Below I will describe each process, going into detail when necessary. The scripts, jobs and templates are available in the [`scripts`](scripts/) folder.
 
+## Rundeck configurations
+
+## passwords
+
+## external files
+
 ## Options
 
 In order to set the correct context in which the commands will be executed, some job options need to be set in the job context.
