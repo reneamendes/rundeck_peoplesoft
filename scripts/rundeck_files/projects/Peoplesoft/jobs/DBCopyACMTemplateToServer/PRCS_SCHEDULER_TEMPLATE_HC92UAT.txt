@@ -1,0 +1,404 @@
+#TEMPLATE NAME: PRCS_SCHEDULER_TEMPLATE
+ 
+ 
+configure=true
+verify=true
+decrypt_password=true
+ 
+#TEMPLATE VARIABLES SECTION
+template.domain=@webhist.SESSIONCOOKIEDOM
+template.host=@webhist.WEBSERVERNAME
+template.httpport=@webhist.PORTALHTTPPORT
+template.jslport=@webhist.jolt_port
+template.localnode=%LocalNode
+template.nodename=%LocalNode
+template.piasite=@webhist.ps.discovery.siteName
+template.ses_port=7777
+template.seshost=seshost
+template.sslport=@webhist.PORTALHTTPSPORT
+template.tools_release=%ToolsRelease
+template.userid=%UserId
+#END: TEMPLATE VARIABLES SECTION
+ 
+ 
+ 
+########################################
+#Defina a configuração do Nó do Relatório do Process Scheduler
+########################################
+ 
+plugin.Process Scheduler.1=PTEM_CONFIG:PTProcessSchedulerReportNode
+ 
+#Nome do Nó de Distribuição
+env.distnodename=RPT_NODE
+#Protocol; Valores Possíveis: 0 => HTTP:; Valores Possíveis: 1 => HTTPS:; Valores Possíveis: 2 => XCOPY:; Valores Possíveis: 3 => FTP:; Valores Possíveis: 4 => FTPS:; Valores Possíveis: 5 => SFTP:
+env.cdm_proto=0
+#Modo SSL; Valores Possíveis: 0 => EXPLICIT:; Valores Possíveis: 1 => IMPLICIT:
+env.cdm_ssl_mode=0
+#Sistema Operacional; Valores Possíveis: 0 => DOS:; Valores Possíveis: 1 => NT/Win95 Client:; Valores Possíveis: 2 => Windows:; Valores Possíveis: 3 => OS/2:; Valores Possíveis: 4 => UNIX:; Valores Possíveis: 5 => VMS:; Valores Possíveis: 6 => MPE/XL:; Valores Possíveis: 7 => OS390:; Valores Possíveis: 8 => NT:; Valores Possíveis: 9 => OS/400:
+env.opsys=4
+#ID Transferência Arq
+env.ftpid=
+#Endereço FTP
+env.ftpaddress=
+#Diretório para FTP
+env.ftpdirectory=
+#URLID
+env.url=http://linuxserverhostname.yourcompany.com:8340/psreports/hc92uat
+#Caminho da Rede do Windows
+env.winnetworkpath=
+#Descrição
+env.descrlong=
+#Host URI
+env.uri_host=linuxserverhostname.yourcompany.com
+#Porta URI
+env.uri_port=8340
+#Recurso URI
+env.uri_resource=SchedulerTransfer/hc92uat
+#Senha Usuário (Criptografada)
+env.operpswd=
+#Operator Password (Encrypted)
+env.wrkoperpswd=
+#Transfer Protocol
+env.cdm_trprotocol=
+#Property Name
+env.pt_prop_name=
+#Property Value
+env.pt_prop_value=
+#Node Password
+env.wrkpassword=
+#Confirm Password
+env.wrkcnfpassword=
+#Encrypted Password
+env.pt_fileencpasswd=
+#Indicador para determinar se uma propriedade precisa ser excluída
+env.delete_prop=N
+ 
+ 
+########################################
+#Defina a configuração do Servidor do Process Scheduler
+########################################
+ 
+plugin.Process Scheduler.1=PTEM_CONFIG:PTProcessSchedulerServerConfig
+ 
+#Nome do Servidor
+env.servername=PSCDB
+#Descrição
+env.descr=PSCDB
+#Tempo de Espera
+env.sleeptime=15
+#Frequência
+env.heartbeat=60
+#Qtd Máx Tarefas com API
+env.maxapiaware=5
+#Sistema Operacional; Valores Possíveis: 0 => DOS:; Valores Possíveis: 1 => NT/Win95 Client:; Valores Possíveis: 2 => Windows:; Valores Possíveis: 3 => OS/2:; Valores Possíveis: 4 => UNIX:; Valores Possíveis: 5 => VMS:; Valores Possíveis: 6 => MPE/XL:; Valores Possíveis: 7 => OS390:; Valores Possíveis: 8 => NT:; Valores Possíveis: 9 => OS/400:
+env.opsys=2
+#Nome do Nó de Distribuição
+env.distnodename=
+#Transferir Arq Log p/ Conteúdo
+env.transferlogfiles=0
+#Máx Tentativas Transferência
+env.transfermaxretry=0
+#Intervalo Entre Tentativas
+env.transferinterval=0
+#Balanceamento de Carga; Valores Possíveis: 0 => Do Not Use for Load Balancing:; Valores Possíveis: 1 => Use for Load Balancing:
+env.srvrloadbaloptn=1
+#Carga de Trabalho; Valores Possíveis: 0 => Do Not Redistribute:; Valores Possíveis: 1 => Redistribute with same O/S:; Valores Possíveis: 2 => Redistribute to any O/S:
+env.redistwrkoption=1
+#Grupo Procedimentos de Daemons
+env.daemongroup=PTCDBMSG
+#Tempo de Espera Daemon
+env.daemonsleeptime=1
+#Daemon Ativado
+env.daemonenabled=1
+#Nº Novos Ciclos Daemon
+env.daemoncyclecnt=0
+#Process Instance
+env.daemonprcsinst=0
+#Uso Máximo CPU Obrigatório
+env.maxcpu=0
+#Memória Mínima Obrigatória
+env.minmem=0
+#Notify Frequency
+env.prcsnotifyfreq=0
+#Process Category
+env.prcscategory=Default,LOADCACHE
+#Prioridade do Processo; Valores Possíveis: 1 => Low:; Valores Possíveis: 5 => Medium:; Valores Possíveis: 9 => High:
+env.prcspriority=5,5
+#Qtd Máx Processos Simultâneos
+env.maxconcurrent=5,0
+#Tipo de Processo
+env.prcstype=Application Engine,Essbase Cube Builder
+#Start
+env.start_hours=0,0,0,0,0,0,0
+#Time
+env.start_minutes=0,0,0,0,0,0,0
+#End
+env.end_hours=23,23,23,23,23,23,23
+#End Minutes
+env.end_minutes=59,59,59,59,59,59,59
+#Day; Valores Possíveis: 2 => Tuesday:; Valores Possíveis: 3 => Wednesday:; Valores Possíveis: 4 => Thursday:; Valores Possíveis: 5 => Friday:; Valores Possíveis: 6 => Saturday:; Valores Possíveis: 1 => Monday:; Valores Possíveis: 0 => Sunday:
+env.day_ofweek=0,1,2,3,4,5,6
+#ID Distribuição
+env.distid=
+#Tipo ID Distribuição; Valores Possíveis: 2 => User ID:; Valores Possíveis: 3 => Role Name:
+env.distidtype=
+#Server Errors
+env.notifyservererror=0
+#Notificar se Desativado
+env.notifywhendown=0
+#Notificar Quando Iniciado
+env.notifywhenstartd=0
+#Notificar Quando Suspenso
+env.notifywhensusp=0
+#Notificação Desativada
+env.notifydisabled=
+#Prioridade do Tipo de Processo: Valores possíveis: 1->Baixo, 5->Médio, 9->Alto
+env.processtypepriority=5,5
+#Valor Máximo Simultâneo do tipo de Processo
+env.processtypemaxconcurrent=1,3
+########################################
+#Defina a configuração do Servidor do Process Scheduler
+########################################
+ 
+plugin.Process Scheduler.2=PTEM_CONFIG:PTProcessSchedulerServerConfig
+ 
+#Nome do Servidor
+env.servername=PSNT
+#Descrição
+env.descr=Agente de Servidor NT
+#Tempo de Espera
+env.sleeptime=5
+#Frequência
+env.heartbeat=60
+#Qtd Máx Tarefas com API
+env.maxapiaware=5
+#Sistema Operacional; Valores Possíveis: 0 => DOS:; Valores Possíveis: 1 => NT/Win95 Client:; Valores Possíveis: 2 => Windows:; Valores Possíveis: 3 => OS/2:; Valores Possíveis: 4 => UNIX:; Valores Possíveis: 5 => VMS:; Valores Possíveis: 6 => MPE/XL:; Valores Possíveis: 7 => OS390:; Valores Possíveis: 8 => NT:; Valores Possíveis: 9 => OS/400:
+env.opsys=2
+#Nome do Nó de Distribuição
+env.distnodename=RPT_NODE
+#Transferir Arq Log p/ Conteúdo
+env.transferlogfiles=1
+#Máx Tentativas Transferência
+env.transfermaxretry=5
+#Intervalo Entre Tentativas
+env.transferinterval=10
+#Balanceamento de Carga; Valores Possíveis: 0 => Do Not Use for Load Balancing:; Valores Possíveis: 1 => Use for Load Balancing:
+env.srvrloadbaloptn=1
+#Carga de Trabalho; Valores Possíveis: 0 => Do Not Redistribute:; Valores Possíveis: 1 => Redistribute with same O/S:; Valores Possíveis: 2 => Redistribute to any O/S:
+env.redistwrkoption=2
+#Grupo Procedimentos de Daemons
+env.daemongroup=
+#Tempo de Espera Daemon
+env.daemonsleeptime=0
+#Daemon Ativado
+env.daemonenabled=0
+#Nº Novos Ciclos Daemon
+env.daemoncyclecnt=0
+#Process Instance
+env.daemonprcsinst=0
+#Uso Máximo CPU Obrigatório
+env.maxcpu=0
+#Memória Mínima Obrigatória
+env.minmem=0
+#Notify Frequency
+env.prcsnotifyfreq=0
+#Process Category
+env.prcscategory=Default,LOADCACHE
+#Prioridade do Processo; Valores Possíveis: 1 => Low:; Valores Possíveis: 5 => Medium:; Valores Possíveis: 9 => High:
+env.prcspriority=5,5
+#Qtd Máx Processos Simultâneos
+env.maxconcurrent=5,0
+#Tipo de Processo
+env.prcstype=Application Engine,COBOL SQL,Crw Online,Cube Builder,Data Mover,Essbase Cube Builder,Optimization Engine,PSJob,SQR Process,SQR Report,SQR Report For WF Delivery,Winword,XML Publisher,nVision-Report,nVision-ReportBook
+#Start
+env.start_hours=0,0,0,0,0,0,0
+#Time
+env.start_minutes=0,0,0,0,0,0,0
+#End
+env.end_hours=23,23,23,23,23,23,23,23,23,23,23,23,23,23
+#End Minutes
+env.end_minutes=59,59,59,59,59,59,59,59,59,59,59,59,59,59
+#Day; Valores Possíveis: 2 => Tuesday:; Valores Possíveis: 3 => Wednesday:; Valores Possíveis: 4 => Thursday:; Valores Possíveis: 5 => Friday:; Valores Possíveis: 6 => Saturday:; Valores Possíveis: 0 => Sunday:; Valores Possíveis: 1 => Monday:
+env.day_ofweek=0,1,2,3,4,5,6
+#ID Distribuição
+env.distid=
+#Tipo ID Distribuição; Valores Possíveis: 2 => User ID:; Valores Possíveis: 3 => Role Name:
+env.distidtype=
+#Server Errors
+env.notifyservererror=0
+#Notificar se Desativado
+env.notifywhendown=0
+#Notificar Quando Iniciado
+env.notifywhenstartd=0
+#Notificar Quando Suspenso
+env.notifywhensusp=0
+#Notificação Desativada
+env.notifydisabled=
+#Prioridade do Tipo de Processo: Valores possíveis: 1->Baixo, 5->Médio, 9->Alto
+env.processtypepriority=5,5,5,5,5,5,5,5,5,5,5,5,5,5,5
+#Valor Máximo Simultâneo do tipo de Processo
+env.processtypemaxconcurrent=3,3,3,3,3,3,2,3,3,3,3,3,3,3,3
+########################################
+#Defina a configuração do Servidor do Process Scheduler
+########################################
+ 
+plugin.Process Scheduler.3=PTEM_CONFIG:PTProcessSchedulerServerConfig
+ 
+#Nome do Servidor
+env.servername=PSOS390
+#Descrição
+env.descr=Agente de Servidor DB2/OS390
+#Tempo de Espera
+env.sleeptime=15
+#Frequência
+env.heartbeat=60
+#Qtd Máx Tarefas com API
+env.maxapiaware=5
+#Sistema Operacional; Valores Possíveis: 0 => DOS:; Valores Possíveis: 1 => NT/Win95 Client:; Valores Possíveis: 2 => Windows:; Valores Possíveis: 3 => OS/2:; Valores Possíveis: 4 => UNIX:; Valores Possíveis: 5 => VMS:; Valores Possíveis: 6 => MPE/XL:; Valores Possíveis: 7 => OS390:; Valores Possíveis: 8 => NT:; Valores Possíveis: 9 => OS/400:
+env.opsys=7
+#Nome do Nó de Distribuição
+env.distnodename=
+#Transferir Arq Log p/ Conteúdo
+env.transferlogfiles=0
+#Máx Tentativas Transferência
+env.transfermaxretry=0
+#Intervalo Entre Tentativas
+env.transferinterval=0
+#Balanceamento de Carga; Valores Possíveis: 0 => Do Not Use for Load Balancing:; Valores Possíveis: 1 => Use for Load Balancing:
+env.srvrloadbaloptn=1
+#Carga de Trabalho; Valores Possíveis: 0 => Do Not Redistribute:; Valores Possíveis: 1 => Redistribute with same O/S:; Valores Possíveis: 2 => Redistribute to any O/S:
+env.redistwrkoption=2
+#Grupo Procedimentos de Daemons
+env.daemongroup=
+#Tempo de Espera Daemon
+env.daemonsleeptime=0
+#Daemon Ativado
+env.daemonenabled=0
+#Nº Novos Ciclos Daemon
+env.daemoncyclecnt=0
+#Process Instance
+env.daemonprcsinst=0
+#Uso Máximo CPU Obrigatório
+env.maxcpu=0
+#Memória Mínima Obrigatória
+env.minmem=0
+#Notify Frequency
+env.prcsnotifyfreq=0
+#Process Category
+env.prcscategory=Default,LOADCACHE
+#Prioridade do Processo; Valores Possíveis: 1 => Low:; Valores Possíveis: 5 => Medium:; Valores Possíveis: 9 => High:
+env.prcspriority=5,5
+#Qtd Máx Processos Simultâneos
+env.maxconcurrent=5,0
+#Tipo de Processo
+env.prcstype=COBOL SQL,PSJob,Application Engine,SQR Process,SQR Report,SQR Report For WF Delivery
+#Start
+env.start_hours=0,0,0,0,0,0,0
+#Time
+env.start_minutes=0,0,0,0,0,0,0
+#End
+env.end_hours=23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23
+#End Minutes
+env.end_minutes=59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59
+#Day; Valores Possíveis: 2 => Tuesday:; Valores Possíveis: 3 => Wednesday:; Valores Possíveis: 4 => Thursday:; Valores Possíveis: 5 => Friday:; Valores Possíveis: 6 => Saturday:; Valores Possíveis: 0 => Sunday:; Valores Possíveis: 1 => Monday:
+env.day_ofweek=0,1,2,3,4,5,6
+#ID Distribuição
+env.distid=
+#Tipo ID Distribuição; Valores Possíveis: 2 => User ID:; Valores Possíveis: 3 => Role Name:
+env.distidtype=
+#Server Errors
+env.notifyservererror=0
+#Notificar se Desativado
+env.notifywhendown=0
+#Notificar Quando Iniciado
+env.notifywhenstartd=0
+#Notificar Quando Suspenso
+env.notifywhensusp=0
+#Notificação Desativada
+env.notifydisabled=
+#Prioridade do Tipo de Processo: Valores possíveis: 1->Baixo, 5->Médio, 9->Alto
+env.processtypepriority=5,5,5,5,5,5
+#Valor Máximo Simultâneo do tipo de Processo
+env.processtypemaxconcurrent=3,3,3,3,3,3
+########################################
+#Defina a configuração do Servidor do Process Scheduler
+########################################
+ 
+plugin.Process Scheduler.4=PTEM_CONFIG:PTProcessSchedulerServerConfig
+ 
+#Nome do Servidor
+env.servername=PSUNX
+#Descrição
+env.descr=Agente de Servidor UNIX
+#Tempo de Espera
+env.sleeptime=5
+#Frequência
+env.heartbeat=60
+#Qtd Máx Tarefas com API
+env.maxapiaware=5
+#Sistema Operacional; Valores Possíveis: 0 => DOS:; Valores Possíveis: 1 => NT/Win95 Client:; Valores Possíveis: 2 => Windows:; Valores Possíveis: 3 => OS/2:; Valores Possíveis: 4 => UNIX:; Valores Possíveis: 5 => VMS:; Valores Possíveis: 6 => MPE/XL:; Valores Possíveis: 7 => OS390:; Valores Possíveis: 8 => NT:; Valores Possíveis: 9 => OS/400:
+env.opsys=4
+#Nome do Nó de Distribuição
+env.distnodename=RPT_NODE
+#Transferir Arq Log p/ Conteúdo
+env.transferlogfiles=1
+#Máx Tentativas Transferência
+env.transfermaxretry=5
+#Intervalo Entre Tentativas
+env.transferinterval=10
+#Balanceamento de Carga; Valores Possíveis: 0 => Do Not Use for Load Balancing:; Valores Possíveis: 1 => Use for Load Balancing:
+env.srvrloadbaloptn=1
+#Carga de Trabalho; Valores Possíveis: 0 => Do Not Redistribute:; Valores Possíveis: 1 => Redistribute with same O/S:; Valores Possíveis: 2 => Redistribute to any O/S:
+env.redistwrkoption=2
+#Grupo Procedimentos de Daemons
+env.daemongroup=
+#Tempo de Espera Daemon
+env.daemonsleeptime=0
+#Daemon Ativado
+env.daemonenabled=0
+#Nº Novos Ciclos Daemon
+env.daemoncyclecnt=0
+#Process Instance
+env.daemonprcsinst=0
+#Uso Máximo CPU Obrigatório
+env.maxcpu=0
+#Memória Mínima Obrigatória
+env.minmem=0
+#Notify Frequency
+env.prcsnotifyfreq=0
+#Process Category
+env.prcscategory=Default,LOADCACHE
+#Prioridade do Processo; Valores Possíveis: 1 => Low:; Valores Possíveis: 5 => Medium:; Valores Possíveis: 9 => High:
+env.prcspriority=5,5
+#Qtd Máx Processos Simultâneos
+env.maxconcurrent=5,2
+#Tipo de Processo
+env.prcstype=Application Engine,COBOL SQL,Data Mover,Optimization Engine,PSJob,SQR Process,SQR Report,SQR Report For WF Delivery,XML Publisher,nVision-Report,nVision-ReportBook
+#Start
+env.start_hours=0,0,0,0,0,0,0
+#Time
+env.start_minutes=0,0,0,0,0,0,0
+#End
+env.end_hours=23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23
+#End Minutes
+env.end_minutes=59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59
+#Day; Valores Possíveis: 2 => Tuesday:; Valores Possíveis: 3 => Wednesday:; Valores Possíveis: 4 => Thursday:; Valores Possíveis: 5 => Friday:; Valores Possíveis: 6 => Saturday:; Valores Possíveis: 0 => Sunday:; Valores Possíveis: 1 => Monday:
+env.day_ofweek=0,1,2,3,4,5,6
+#ID Distribuição
+env.distid=
+#Tipo ID Distribuição; Valores Possíveis: 2 => User ID:; Valores Possíveis: 3 => Role Name:
+env.distidtype=
+#Server Errors
+env.notifyservererror=0
+#Notificar se Desativado
+env.notifywhendown=0
+#Notificar Quando Iniciado
+env.notifywhenstartd=0
+#Notificar Quando Suspenso
+env.notifywhensusp=0
+#Notificação Desativada
+env.notifydisabled=
+#Prioridade do Tipo de Processo: Valores possíveis: 1->Baixo, 5->Médio, 9->Alto
+env.processtypepriority=5,5,5,5,5,5,5,5,5,5,5
+#Valor Máximo Simultâneo do tipo de Processo
+env.processtypemaxconcurrent=3,3,1,2,3,3,3,3,3,5,5
